@@ -1,0 +1,28 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(file)
+
+# WITHOUT DATABASE
+#GET     /allBooks                   controllers.BooksController.allBooks()
+#GET     /searchBook                 controllers.BooksController.searchBook(id: Integer)
+#POST    /addBook                    controllers.BooksController.addBook(request:Request)
+#PUT     /updateBook/:id                 controllers.BooksController.updateBook(id:Integer,request:Request)
+#DELETE  /deleteBook/:id                 controllers.BooksController.deleteBook(id:Integer)
+
+
+# WITH DATABASE
+GET     /allBooks                   controllers.DBBooksController.allBooks()
+GET     /searchBook                 controllers.DBBooksController.searchBook(id: Integer)
+POST    /addBook                    controllers.DBBooksController.addBook(request:Request)
+PUT     /updateBook/:id                 controllers.DBBooksController.updateBook(id:Integer,request:Request)
+DELETE  /deleteBook/:id                 controllers.DBBooksController.deleteBook(id:Integer)
